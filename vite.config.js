@@ -11,22 +11,19 @@ export default defineConfig({
 
   build: {
     target: "es2020",
-
     sourcemap: false,
-
     chunkSizeWarningLimit: 1200,
 
     rollupOptions: {
       output: {
-        manualChunks: {
-          react: [
-            "react",
-            "react-dom",
-          ],
+        manualChunks(id) {
+          if (id.includes("node_modules/react")) {
+            return "react";
+          }
 
-          motion: [
-            "framer-motion",
-          ],
+          if (id.includes("node_modules/framer-motion")) {
+            return "motion";
+          }
         },
       },
     },

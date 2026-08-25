@@ -2,6 +2,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 import LoadingScreen from "./components/LoadingScreen";
 import RakhiOpening from "./components/RakhiOpening";
@@ -55,6 +56,7 @@ function App() {
 
   return (
     <main className="app">
+      <Analytics />
       {loading && (
         <LoadingScreen
           onComplete={() =>

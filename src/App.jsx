@@ -3,6 +3,8 @@ import {
   useState,
 } from "react";
 
+import { SpeedInsights } from "@vercel/speed-insights/react";
+
 import LoadingScreen from "./components/LoadingScreen";
 import RakhiOpening from "./components/RakhiOpening";
 import Main3DEnvironment from "./components/Main3DEnvironment";
@@ -55,6 +57,8 @@ function App() {
 
   return (
     <main className="app">
+      <SpeedInsights />
+
       {loading && (
         <LoadingScreen
           onComplete={() =>

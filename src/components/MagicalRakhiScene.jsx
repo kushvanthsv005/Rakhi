@@ -753,12 +753,12 @@ function ExplosionParticles({
 
             <pointsMaterial
                 color="#efc777"
-                size={0.045}
+                size={0.032}
                 transparent
+                opacity={1}
                 depthWrite={false}
-                blending={
-                    THREE.AdditiveBlending
-                }
+                depthTest={false}
+                blending={THREE.AdditiveBlending}
             />
         </points>
     );
@@ -799,7 +799,7 @@ function ParticleText({
             ctx.fillStyle = "white";
 
             ctx.font =
-                "bold 82px serif";
+                "bold 68px serif";
 
             ctx.textAlign =
                 "center";
@@ -810,7 +810,16 @@ function ParticleText({
             ctx.fillText(
                 "Happy Raksha Bandhan ❤️",
                 450,
-                110
+                90
+            );
+
+            ctx.font =
+                "bold 72px serif";
+
+            ctx.fillText(
+                "♥",
+                450,
+                165
             );
 
             const imageData =
@@ -897,10 +906,10 @@ function ParticleText({
             ref={ref}
             position={[
                 0,
-                -1.05,
-                0,
+                -2.05,
+                1.5,
             ]}
-            scale={0.72}
+            scale={0.62}
         >
             <bufferGeometry>
                 <bufferAttribute
@@ -915,7 +924,7 @@ function ParticleText({
 
             <pointsMaterial
                 color="#efc777"
-                size={0.028}
+                size={0.055}
                 transparent
                 depthWrite={false}
                 blending={

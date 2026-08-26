@@ -5341,6 +5341,59 @@ h1 span {
   color: #efc777;
 }
 
+/* ========================================
+    Audio Player
+========================================= */
+
+.audio-control {
+  position: fixed;
+
+  top: 22px;
+  right: 22px;
+
+  width: 45px;
+  height: 45px;
+
+  border: 1px solid
+    rgba(239, 199, 119, 0.4);
+
+  border-radius: 50%;
+
+  background:
+    rgba(20, 8, 10, 0.65);
+
+  color: #efc777;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  z-index: 9999;
+
+  backdrop-filter: blur(10px);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.audio-control:hover {
+  transform: scale(1.08);
+
+  background:
+    rgba(239, 199, 119, 0.12);
+}
+
+@media (max-width: 600px) {
+  .audio-control {
+    top: 15px;
+    right: 15px;
+
+    width: 40px;
+    height: 40px;
+  }
+}
+
 /* =========================================
    FINAL CELEBRATION
 ========================================= */

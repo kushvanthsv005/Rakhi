@@ -25,7 +25,7 @@ function RakhiTyingExperience() {
                 <p>ONE LAST THING...</p>
 
                 <h2>
-                    A Rakhi made with love
+                    A Rakhi made with love.
                 </h2>
 
                 <span>

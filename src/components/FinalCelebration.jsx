@@ -5,6 +5,9 @@ import {
   AnimatePresence,
 } from "framer-motion";
 
+import RakhiTyingExperience
+  from "./RakhiTyingExperience";
+
 import { useRef, useState } from "react";
 
 function FinalCelebration({
@@ -12,8 +15,10 @@ function FinalCelebration({
 }) {
   const sectionRef = useRef(null);
 
-  const [showMessage, setShowMessage] =
-    useState(false);
+  const [
+    showTying,
+    setShowTying,
+  ] = useState(false);
 
   const { scrollYProgress } =
     useScroll({
@@ -55,7 +60,7 @@ function FinalCelebration({
     >
       <div className="final-background-glow" />
 
-      <div 
+      <div
         className="final-stars"
         aria-hidden="true"
       >
@@ -335,49 +340,34 @@ function FinalCelebration({
             delay: 1.5,
           }}
           onClick={() =>
-            setShowMessage(
-              (value) => !value
-            )
+            setShowTying(true)
           }
         >
-          {showMessage
-            ? "Hide message"
-            : "One last thing..."}
+          One last thing... ✨
         </motion.button>
 
         <AnimatePresence>
-          {showMessage && (
+          {showTying && (
             <motion.div
-              className="final-hidden-message"
+              className="tying-experience-wrapper"
               initial={{
                 opacity: 0,
                 height: 0,
-                y: 10,
               }}
               animate={{
                 opacity: 1,
                 height: "auto",
-                y: 0,
               }}
               exit={{
                 opacity: 0,
                 height: 0,
-                y: -10,
               }}
             >
-              <p>
-                Thank you for being my
-                sister.
-              </p>
-
-              <span>
-                No matter what happens,
-                we will always be family.
-                ❤️
-              </span>
+              <RakhiTyingExperience />
             </motion.div>
           )}
         </AnimatePresence>
+
       </motion.div>
 
       <motion.div

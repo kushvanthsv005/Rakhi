@@ -13,6 +13,7 @@ import JourneyTimeline from "./components/JourneyTimeline";
 import LetterSection from "./components/LetterSection";
 import BlessingSection from "./components/BlessingSection";
 import FinalCelebration from "./components/FinalCelebration";
+import FloatingRakhi from "./components/FloatingRakhi";
 import CursorGlow from "./components/CursorGlow";
 import { config } from "./config";
 
@@ -101,6 +102,7 @@ function App() {
 function MainWebsite({ onReplay }) {
   return (
     <div className="main-site">
+      <FloatingRakhi />
       <Hero />
       <PhotoGallery />
       <JourneyTimeline />

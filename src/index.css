@@ -1236,6 +1236,384 @@ h1 span {
     rgba(239, 199, 119, 0.15);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 90px;
+}
+
+/* =========================================
+   RAKHI NAVBAR
+========================================= */
+
+.rakhi-navbar {
+  position: fixed;
+
+  top: 0px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: min(
+    94%,
+    1050px
+  );
+
+  height: 62px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding:
+    0 18px;
+
+  z-index: 10000;
+
+  border:
+    1px solid
+    rgba(
+      239,
+      199,
+      119,
+      0.18
+    );
+
+  border-radius: 18px;
+
+  background:
+    rgba(
+      15,
+      7,
+      9,
+      0.72
+    );
+
+  backdrop-filter:
+    blur(18px);
+
+  -webkit-backdrop-filter:
+    blur(18px);
+
+  box-shadow:
+    0 12px 45px
+    rgba(
+      0,
+      0,
+      0,
+      0.25
+    );
+}
+
+
+/* Logo */
+
+.navbar-logo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  border: none;
+
+  background: transparent;
+
+  color:
+    rgba(
+      255,
+      237,
+      205,
+      0.92
+    );
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 1.25rem;
+
+  cursor: pointer;
+}
+
+.navbar-logo span {
+  color: #efc777;
+
+  font-size: 1rem;
+}
+
+
+/* Desktop links */
+
+.navbar-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+}
+
+.navbar-links button {
+  position: relative;
+
+  padding:
+    9px 13px;
+
+  border: none;
+
+  background: transparent;
+
+  color:
+    rgba(
+      255,
+      235,
+      210,
+      0.62
+    );
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 0.9rem;
+
+  letter-spacing: 0.02em;
+
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease;
+}
+
+.navbar-links button::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 3px;
+
+  width: 0;
+  height: 1px;
+
+  transform:
+    translateX(-50%);
+
+  background: #efc777;
+
+  transition:
+    width 0.25s ease;
+}
+
+.navbar-links button:hover {
+  color: #efc777;
+}
+
+.navbar-links button:hover::after {
+  width: 55%;
+}
+
+
+/* Mobile menu button */
+
+.navbar-menu-button {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background:
+    rgba(
+      239,
+      199,
+      119,
+      0.06
+    );
+
+  cursor: pointer;
+}
+
+.menu-line {
+  width: 20px;
+  height: 1px;
+
+  background: #efc777;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.menu-line.open:nth-child(1) {
+  transform:
+    translateY(6px)
+    rotate(45deg);
+}
+
+.menu-line.open:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-line.open:nth-child(3) {
+  transform:
+    translateY(-6px)
+    rotate(-45deg);
+}
+
+
+/* Mobile navigation */
+
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .rakhi-navbar {
+    top: 0px;
+
+    width: 92%;
+
+    height: 56px;
+
+    padding:
+      0 12px;
+
+    border-radius: 15px;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-menu-button {
+    display: flex;
+  }
+
+  .mobile-nav {
+    position: absolute;
+
+    top: calc(100% + 10px);
+
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    padding: 10px;
+
+    border:
+      1px solid
+      rgba(
+        239,
+        199,
+        119,
+        0.15
+      );
+
+    border-radius: 15px;
+
+    background:
+      rgba(
+        15,
+        7,
+        9,
+        0.94
+      );
+
+    backdrop-filter:
+      blur(20px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+      translateY(-8px);
+
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0.25s ease;
+  }
+
+  .mobile-nav.open {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+      translateY(0);
+  }
+
+  .mobile-nav button {
+    width: 100%;
+
+    padding:
+      13px 15px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    color:
+      rgba(
+        255,
+        235,
+        210,
+        0.7
+      );
+
+    text-align: left;
+
+    font-family:
+      "Cormorant Garamond",
+      serif;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+  }
+
+  .mobile-nav button:active {
+    background:
+      rgba(
+        239,
+        199,
+        119,
+        0.08
+      );
+
+    color: #efc777;
+  }
+
+  section[id] {
+    scroll-margin-top: 80px;
+  }
+}
+
 /* =========================================
    MOBILE
 ========================================= */
@@ -1610,6 +1988,9 @@ h1 span {
 ========================================= */
 
 .hero-content {
+  padding:
+    80px 5vw 60px;
+
   position: relative;
 
   z-index: 10;
@@ -2049,7 +2430,7 @@ h1 span {
   width: 100%;
 
   padding:
-    140px 5vw 120px;
+    100px 5vw 100px;
 
   overflow: hidden;
 
@@ -5348,49 +5729,142 @@ h1 span {
 .audio-control {
   position: fixed;
 
-  top: 22px;
-  right: 22px;
+  right: 28px;
+  bottom: 24px;
 
-  width: 45px;
-  height: 45px;
+  top: auto;
+
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
 
   border: 1px solid
-    rgba(239, 199, 119, 0.4);
+    rgba(
+      239,
+      199,
+      119,
+      0.45
+    );
 
   border-radius: 50%;
 
   background:
-    rgba(20, 8, 10, 0.65);
+    radial-gradient(
+      circle at 35% 30%,
+      rgba(
+        239,
+        199,
+        119,
+        0.16
+      ),
+      rgba(
+        20,
+        7,
+        9,
+        0.72
+      )
+    );
 
   color: #efc777;
 
-  font-size: 18px;
+  font-size: 20px;
 
   cursor: pointer;
 
-  z-index: 9999;
+  z-index: 99999;
 
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(8px);
+
+  -webkit-backdrop-filter: blur(8px);
+
+  box-shadow:
+    0 0 0 1px
+      rgba(
+        239,
+        199,
+        119,
+        0.04
+      ),
+    0 8px 30px
+      rgba(
+        0,
+        0,
+        0,
+        0.35
+      ),
+    0 0 22px
+      rgba(
+        239,
+        199,
+        119,
+        0.08
+      );
 
   transition:
     transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
     background 0.25s ease;
 }
 
 .audio-control:hover {
   transform: scale(1.08);
 
+  border-color:
+    rgba(
+      239,
+      199,
+      119,
+      0.75
+    );
+
   background:
-    rgba(239, 199, 119, 0.12);
+    radial-gradient(
+      circle at 35% 30%,
+      rgba(
+        239,
+        199,
+        119,
+        0.22
+      ),
+      rgba(
+        20,
+        7,
+        9,
+        0.82
+      )
+    );
+
+  box-shadow:
+    0 0 25px
+      rgba(
+        239,
+        199,
+        119,
+        0.18
+      ),
+    0 10px 35px
+      rgba(
+        0,
+        0,
+        0,
+        0.4
+      );
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .audio-control {
-    top: 15px;
-    right: 15px;
+    right: 16px;
+    bottom: 18px;
 
-    width: 40px;
-    height: 40px;
+    width: 46px;
+    height: 46px;
+
+    font-size: 17px;
   }
 }
 
@@ -5414,7 +5888,7 @@ h1 span {
   justify-content: center;
 
   padding:
-    140px 20px 100px;
+    40px 20px 100px;
 
   overflow: hidden;
 

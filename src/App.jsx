@@ -6,6 +6,7 @@ import {
 import LoadingScreen from "./components/LoadingScreen";
 import RakhiOpening from "./components/RakhiOpening";
 import Main3DEnvironment from "./components/Main3DEnvironment";
+import Navbar from "./components/Navbar";
 import MouseParallax from "./components/MouseParallax";
 import Hero from "./components/Hero";
 import AudioController from "./components/AudioController";
@@ -86,6 +87,8 @@ function App() {
               <CursorGlow />
             )}
 
+            <Navbar />
+
             <MainWebsite
               onReplay={() => {
                 setOpeningComplete(false);
@@ -103,16 +106,28 @@ function App() {
 function MainWebsite({ onReplay }) {
   return (
     <div className="main-site">
-      
-      <Hero />
+
+      <section id="home">
+        <Hero />
+      </section>
       <AudioController />
-      <PhotoGallery />
-      <JourneyTimeline />
-      <LetterSection />
-      <BlessingSection />
-      <FinalCelebration
-        onReplay={onReplay}
-      />
+      <section id="memories">
+        <PhotoGallery />
+      </section>
+      <section id="journey">
+        <JourneyTimeline />
+      </section>
+      <section id="letter">
+        <LetterSection />
+      </section>
+      <section id="blessings">
+        <BlessingSection />
+      </section>
+      <section id="finale">
+        <FinalCelebration
+          onReplay={onReplay}
+        />
+      </section>
 
       <section
         id="memories"

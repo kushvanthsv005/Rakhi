@@ -9,8 +9,23 @@ function AudioController() {
 
     audio.loop = true;
     audio.volume = 0.35;
+    audio.preload = "auto";
 
     audioRef.current = audio;
+
+    // Try to autoplay when the website opens
+    const startMusic = async () => {
+      try {
+        await audio.play();
+        setPlaying(true);
+      } catch (error) {
+        // Browser may block autoplay with sound
+        console.log("Autoplay blocked. User interaction required.");
+        setPlaying(false);
+      }
+    };
+
+    startMusic();
 
     return () => {
       audio.pause();
@@ -19,14 +34,16 @@ function AudioController() {
   }, []);
 
   const toggleAudio = async () => {
-    if (!audioRef.current) return;
+    const audio = audioRef.current;
 
-    if (playing) {
-      audioRef.current.pause();
+    if (!audio) return;
+
+    if (!audio.paused) {
+      audio.pause();
       setPlaying(false);
     } else {
       try {
-        await audioRef.current.play();
+        await audio.play();
         setPlaying(true);
       } catch (error) {
         console.log("Audio playback blocked:", error);
@@ -38,11 +55,7 @@ function AudioController() {
     <button
       className="audio-control"
       onClick={toggleAudio}
-      aria-label={
-        playing
-          ? "Pause music"
-          : "Play music"
-      }
+      aria-label={playing ? "Pause music" : "Play music"}
     >
       {playing ? "🔊" : "🔇"}
     </button>
